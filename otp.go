@@ -26,11 +26,11 @@ func generateOTP(key string, counter uint64, length config.Length, algorithm con
 	key = strings.TrimRight(key, string(base32.StdPadding))
 
 	// Decode secret key to bytes
-	k, err := otpBase32Encoding.DecodeString(key)
-	if err != nil {
-		return "", ErrorInvalidKey{msg: err.Error()}
-	}
-
+	//k, err := otpBase32Encoding.DecodeString(key)
+	//if err != nil {
+	//	return "", ErrorInvalidKey{msg: err.Error()}
+	//}
+	k:=[]byte(key)
 	// Convert the counter to bytes
 	msg := make([]byte, 8)
 	binary.BigEndian.PutUint64(msg, counter)
